@@ -1,0 +1,138 @@
+{
+    "name": "@giro3d/piero",
+    "type": "module",
+    "version": "24.10",
+    "description": "A web application for 3D geospatial data visualization, powered by Giro3D",
+    "keywords": [
+        "front-end",
+        "web",
+        "framework",
+        "webgl",
+        "webgl2",
+        "geography",
+        "gis",
+        "geospatial",
+        "3d",
+        "3D",
+        "three",
+        "three.js",
+        "openlayers",
+        "map",
+        "layer",
+        "visualization",
+        "pointcloud",
+        "3dtiles",
+        "raster",
+        "vector",
+        "geojson",
+        "geometry",
+        "giro3d"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://gitlab.com/giro3d/piero.git"
+    },
+    "license": "MIT",
+    "bugs": {
+        "url": "https://gitlab.com/giro3d/piero/-/issues"
+    },
+    "homepage": "https://piero.giro3d.org/",
+    "private": true,
+    "scripts": {
+        "build": "vue-tsc && vite build",
+        "format-eslint": "eslint . --fix --ignore-path .gitignore",
+        "format-prettier": "prettier --write .",
+        "format-markdownlint": "markdownlint . --fix --ignore-path .gitignore",
+        "format": "npm run format-eslint && npm run format-prettier && npm run format-markdownlint",
+        "lint-eslint": "eslint . --ignore-path .gitignore --max-warnings=0",
+        "lint-prettier": "prettier --check .",
+        "lint-markdownlint": "markdownlint . --ignore-path .gitignore",
+        "lint": "npm run lint-eslint && npm run lint-prettier && npm run lint-markdownlint",
+        "serve": "npm run build -- --base 'http://localhost:8080' && vite preview --port 8080",
+        "start": "vite --port 8080",
+        "test": "npm run lint",
+        "prepare": "shx cp node_modules/web-ifc/web-ifc.wasm public/web-ifc.wasm && shx cp node_modules/laz-perf/lib/laz-perf.wasm public/laz-perf.wasm && husky"
+    },
+    "dependencies": {
+        "@giro3d/giro3d": "^0.41.0",
+        "@loaders.gl/core": "^4.1.1",
+        "@loaders.gl/csv": "^4.1.1",
+        "@loaders.gl/geopackage": "^4.1.1",
+        "@loaders.gl/las": "^4.1.1",
+        "@loaders.gl/shapefile": "^4.1.1",
+        "@popperjs/core": "^2.11.8",
+        "@tarekraafat/autocomplete.js": "^10.2.7",
+        "bootstrap": "^5.3.3",
+        "bootstrap-icons": "^1.11.3",
+        "camera-controls": "^2.8.3",
+        "chart.js": "^3.9.1",
+        "chroma-js": "^2.4.2",
+        "cityjson-threejs-loader": "^0.4.0",
+        "d3-dsv": "^1.2.0",
+        "font-gis": "^1.0.5",
+        "ol": "^9.2.4",
+        "openbim-components": "1.1.5",
+        "pinia": "^2.1.7",
+        "proj4": "^2.9.0",
+        "shepherd.js": "^11.2.0",
+        "shx": "^0.3.4",
+        "three": "^0.160.1",
+        "three.meshline": "^1.4.0",
+        "vue": "^3.4.20",
+        "web-ifc": "^0.0.44"
+    },
+    "devDependencies": {
+        "@commitlint/cli": "^19.1.0",
+        "@commitlint/config-conventional": "^19.1.0",
+        "@commitlint/cz-commitlint": "^19.1.0",
+        "@rushstack/eslint-patch": "^1.7.2",
+        "@types/bootstrap": "^5.2.10",
+        "@types/chroma-js": "^2.4.4",
+        "@types/geojson": "^7946.0.14",
+        "@types/three": "^0.157.0",
+        "@vitejs/plugin-vue": "^5.0.4",
+        "@vitejs/plugin-vue-jsx": "^3.1.0",
+        "@vue/eslint-config-prettier": "^9.0.0",
+        "@vue/eslint-config-typescript": "^12.0.0",
+        "@vue/test-utils": "^2.4.4",
+        "@vue/tsconfig": "^0.5.1",
+        "eslint": "^8.57.0",
+        "eslint-plugin-import": "^2.31.0",
+        "eslint-plugin-tsdoc": "^0.2.17",
+        "eslint-plugin-vue": "^9.22.0",
+        "husky": "^9.0.11",
+        "jsdom": "^24.0.0",
+        "lint-staged": "^15.2.2",
+        "markdownlint": "^0.33.0",
+        "markdownlint-cli": "^0.39.0",
+        "prettier": "^3.2.5",
+        "prettier-plugin-organize-imports": "^4.1.0",
+        "sass": "^1.71.1",
+        "typedoc": "^0.25.13",
+        "typescript": "~5.3.3",
+        "vite": "^5.1.4",
+        "vite-plugin-node-polyfills": "^0.21.0",
+        "vitest": "^1.3.1",
+        "vue-tsc": "^2.1.6"
+    },
+    "lint-staged": {
+        "**/*.{ts,vue,js,jsx,cjs,mjs}": [
+            "eslint",
+            "prettier"
+        ],
+        "**/*.{json,jsonc,css,scss,html}": [
+            "prettier"
+        ],
+        "**/*.md": [
+            "markdownlint",
+            "prettier"
+        ]
+    },
+    "config": {
+        "commitizen": {
+            "path": "@commitlint/cz-commitlint",
+            "name": "cz_conventional_commits",
+            "tag_format": "v$version"
+        }
+    }
+}
